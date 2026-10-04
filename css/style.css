@@ -1,0 +1,485 @@
+/* ============================================
+   🎨 СТИЛИ МИНИ-ПРИЛОЖЕНИЯ
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   ШАПКА
+   ============================================ */
+.app-header {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #f5af19, #f12711);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.header-info {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.user-level {
+    font-size: 13px;
+    color: #888;
+}
+
+.header-balance {
+    text-align: right;
+}
+
+.balance-label {
+    font-size: 12px;
+    color: #888;
+}
+
+.balance-value {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #f5af19, #f12711);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   КОНТЕНТ
+   ============================================ */
+.app-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 80px;
+}
+
+.screen {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   ЗАГРУЗЧИК
+   ============================================ */
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px;
+    color: #888;
+}
+
+.loader-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #f5af19;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   ПРОФИЛЬ
+   ============================================ */
+.profile-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f5af19, #f12711);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 12px;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.profile-username {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.profile-badge {
+    display: inline-block;
+    background: rgba(245, 175, 25, 0.2);
+    color: #f5af19;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* ============================================
+   СТАТИСТИКА
+   ============================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.stat-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.stat-bar-fill.health { background: linear-gradient(90deg, #11998e, #38ef7d); }
+.stat-bar-fill.stress { background: linear-gradient(90deg, #f7971e, #ffd200); }
+.stat-bar-fill.energy { background: linear-gradient(90deg, #2193b0, #6dd5ed); }
+.stat-bar-fill.danger { background: linear-gradient(90deg, #eb3349, #f45c43); }
+
+/* ============================================
+   ИНФО ЛИСТ
+   ============================================ */
+.info-list {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: #888;
+}
+
+.info-value {
+    font-weight: 600;
+}
+
+/* ============================================
+   ЗАГОЛОВКИ ЭКРАНОВ
+   ============================================ */
+.screen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.screen-header h2 {
+    font-size: 20px;
+}
+
+.garage-slots, .total-income {
+    background: rgba(245, 175, 25, 0.2);
+    color: #f5af19;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ============================================
+   МАШИНЫ
+   ============================================ */
+.car-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+    transition: all 0.2s;
+}
+
+.car-card.active {
+    border-color: #f5af19;
+    background: rgba(245, 175, 25, 0.1);
+}
+
+.car-emoji {
+    font-size: 40px;
+}
+
+.car-info {
+    flex: 1;
+}
+
+.car-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.car-details {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.condition-text {
+    font-size: 11px;
+    color: #888;
+}
+
+/* ============================================
+   БИЗНЕСЫ
+   ============================================ */
+.biz-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+}
+
+.biz-icon {
+    font-size: 36px;
+}
+
+.biz-info {
+    flex: 1;
+}
+
+.biz-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.biz-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.biz-income {
+    color: #38ef7d;
+    font-weight: 600;
+}
+
+.biz-manager {
+    font-size: 13px;
+    color: #888;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   БАНК
+   ============================================ */
+.bank-card {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.bank-total-label {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.bank-total {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 8px 0 16px;
+}
+
+.bank-breakdown {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.bank-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+/* ============================================
+   ТРАНЗАКЦИИ
+   ============================================ */
+.transaction {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.transaction-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.transaction-amount {
+    font-weight: 600;
+}
+
+.transaction-amount.income { color: #38ef7d; }
+.transaction-amount.expense { color: #f45c43; }
+
+/* ============================================
+   ОШИБКИ
+   ============================================ */
+.error-box {
+    background: rgba(244, 92, 67, 0.2);
+    border: 1px solid #f45c43;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: #f45c43;
+}
+
+/* ============================================
+   НАВИГАЦИЯ
+   ============================================ */
+.app-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 12, 41, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 12px;
+}
+
+.nav-btn.active {
+    color: #f5af19;
+    background: rgba(245, 175, 25, 0.1);
+}
+
+.nav-icon {
+    font-size: 24px;
+}
+
+.nav-label {
+    font-size: 11px;
+}
